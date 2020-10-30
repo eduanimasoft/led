@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ROOT>
+<about id="1">
+<title>
+<![CDATA[<font color="#333333" face="Verdana" size="12"><b>About eLearn central:</b></font>]]>
+</title>
+<body>
+<![CDATA[<font color="#000000" face="Verdana">
+<i>
+<p><a href="http://ec.elf.stuba.sk/moodle/course/view.php?id=37" target="_blank" title="eLearn central team" ><font size="20" face="Times New Roman"><b>eLearn central team</b></font></a></p>
+<p><font size="13"><b>© Department of Microelectronics</b></font><br><font size="10">Faculty of Electrical Engineering and Information Technology<br>SLOVAK UNIVERSITY OF TECHNOLOGY IN BRATISLAVA<br>Ilkovičova 3, 812 19 Bratislava 1, Slovenská republika</font></p>
+<p><font size="10">&nbsp;</font></p>
+<p><font size="10">Web: &nbsp;&nbsp;&nbsp;<a href="http://ec.elf.stuba.sk/" target="_blank" ><font color="#0000CC" >http://ec.elf.stuba.sk/</font></a><br>E-mail: <a href="mailto:lubica.stuchlikova@stuba.sk"><font color="#0000CC" >lubica.stuchlikova@stuba.sk</font></a></font></p>
+</i>
+</font>]]>
+</body>
+</about>
+
+</ROOT>
