@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="js/entities.js"></script>
+		<script src="js/minigames/minigame.js"></script>
+		<script src="js/minigames/SolarPanelsRepairQuest.js"></script>
+		<script src="js/minigames/Pexeso.js"></script>
+		<script src="js/minigames/RgbLedQuest.js"></script>
+		<script src="js/minigames/LaserCommunicationRepairQuest.js"></script>
+		<script src="js/minigames/LaserTypesQuest.js"></script>
+		<script src="js/minigames/DoorRepairQuest.js"></script>
+		<script src="js/minigames/AccumulatorChargeQuest.js"></script>
+		<script src="js/minigames/RoverAccumulatorsQuest.js"></script>
+		<script src="js/minigames/ChooseCorrectQuest.js"></script>
+		<script src="js/physics.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/game.js"></script>
+		<title> Edukačná hra - Tajomstvá elektroniky a fotoniky </title>
+	</head>
+
+	<body>
+
+		<div id="container">
+
+		<div id="message_box">
+			<div id="message"></div>
+			<div id="message_button"></div>
+		</div>
+		<div id="password_box"></div>
+
+		<nav id="menu">
+
+			<ul>
+
+				<li onclick="action('listRooms');">
+					<div id="joinRoom_button"> PRIPOJIŤ SA </br> DO HRY </div>
+				</li>
+				<li onclick="action('showform');">
+					<div id="createRoom_button"> VYTVORIŤ </br> HRU </div>
+				</li>
+
+				<li onclick="action('showControls')">
+					<div id="settings_button"> OVLÁDANIE </div>
+				</li>
+
+			</ul>
+
+		</nav>
+
+			<div id="controls"></div>
+
+			<div id="list_room_tab">
+				<table id="room_list">
+				</table>
+			</div>
+			
+
+			<div id="create_room_form">
+						
+				<h2>Vytvoriť miestnosť</h2>
+				
+					<div class="form_div">
+						<label for="room_name">Názov miestnosti:</label> <br />
+						<input type="text" id="room_name" name="room_name"> 
+					</div>
+
+					<div class="form_div">
+						<label for="room_name" for="room_pass">Heslo (nepovinné):</label> <br />
+						<input type="password" id="room_pass" name="room_pass"> 
+					</div>
+
+					<div class="form_div">
+						<label>Vyber si postavu:</label> <br />
+
+						<table>
+							<tbody>
+								<tr>
+									<th> Elektrón </th> <th> Fotón </th>
+								</tr>
+								<tr>
+									<td>
+										
+										<label class="ele_left">
+											<input type="radio" id="type_electron" class="radio" name="character_type" value="electron" checked>
+											<img src="data/img/ele_icon.png" alt="electron" width="96" height="150">
+										</label>
+
+									</td> 
+									<td>
+										
+										<label class="fot_right">
+											<input type="radio" id="type_photon" class="radio" name="character_type" value="photon"> 
+											<img src="data/img/fot_icon.png" alt="photon" width="96" height="150">
+										</label>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+
+					<div class="form_div">
+						<div class="jc_room_button" id="create_room" name="create_room" onclick="action('createRoom');">Vytvoriť</div>
+					</div>
+
+			</div>
+
+			<div id="box"></div>
+
+			<canvas id="canvas" width="800" height="500"></canvas>
+
+		</div>
+
+		<script type="text/javascript">
+
+		var socket = io();
+		var game = new Game(socket);
+		game.loadImages();
+
+		function action(action,element) {
+				
+			switch(action) {
+				
+				case "listRooms":
+					game.menu.listRooms(game);
+					break;
+
+				case "showform": 
+					game.menu.showForm();
+					break;
+				
+				case "createRoom":
+					game.menu.createRoom(game);
+					break;
+				
+				case "join":
+					game.menu.joinRoom(game,element);
+					break;
+
+				case "showControls":
+					game.menu.showControls();
+					break;
+
+				default:
+
+			}
+
+		}
+
+		</script>
+
+	</body>
+
+</html>
